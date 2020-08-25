@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div class="container">
+            <h2>Test Reports</h2>
+            <button (click)="viewResults()">Click To View Reports</button>
+            <ul *ngIf="data" class="responsive-table">
+                <li class="table-header">
+                    <div class="col col-1">Result ID</div>
+                    <div class="col col-2">Exam ID</div>
+                    <div class="col col-3">Subject</div>
+                    <div class="col col-4">Status</div>
+                    <div class="col col-4">Level Passed</div>
+                    <div class="col col-4">Score</div>
+                </li>
+                <li *ngFor="let res of data" class="table-row">
+                    <div class="col col-1" data-label="Job Id">{{res.userResultId}}</div>
+                    <div class="col col-1" data-label="Customer Name">{{res.examId}}</div>
+                    <div class="col col-1" data-label="Amount">{{res.examSubject}}</div>
+                    <div class="col col-2" data-label="Amount">{{res.resultStatus}}</div>
+                    <div class="col col-3" data-label="Amount">{{res.levelPassed}}</div>
+                    <div class="col col-4" data-label="Amount">{{res.score}}<span><button>Download</button></span></div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

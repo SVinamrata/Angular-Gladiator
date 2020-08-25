@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    
+
+</head>
+
+<body>
+    <div class="topnav">
+        <ul>
+            <p><a href="#">Login</a></p>
+            <p><a href="#">Home</a></p>
+            <p><a href="#">About Us</a></p>
+            
+            
+            
+            <li><img src="./logo.jpg" style="float: left; padding-left: 20px; height:auto"></li>
+        </ul>
+    </div>
+
+
+    <div class="row">
+        <div class="main">
+            <div class="card">
+                <div class="register">
+                    <h1>Register Here</h1>
+                    <div class="dropdown">
+                        <label>State </label>                        
+                        <select class="stateAndDistrict" [(ngModel)]="stateSelected" (ngModelChange)='onStateSelected($event)'>
+                            <option class="dropdown" *ngFor="let state of state" [Value]="state.Name">{{state.Name}}</option>
+                        </select><br><br>
+                                               
+                        <label>City </label>
+                        <select class="stateAndDistrict" *ngIf="isUttrakhand" [(ngModel)]="districtSelected" (ngModelChange)='onDistrictSelected($event)'>
+                        <option  *ngFor="let uttrakhand of uk" [Value]="uttrakhand.districtName">{{uttrakhand.districtName}}</option>                         
+                                       
+                            </select>
+                           
+                          
+                            <select class="stateAndDistrict" *ngIf="isMadhyaPradesh" [(ngModel)]="districtSelected" (ngModelChange)='onDistrictSelected($event)'>
+                            <option  *ngFor="let madhyaPradesh of mp" [Value]="madhyaPradesh.districtName">{{madhyaPradesh.districtName}}</option>
+                                       
+                            
+                            </select>
+                        
+                            <select class="stateAndDistrict" *ngIf="isUttarPradesh" [(ngModel)]="districtSelected" (ngModelChange)='onDistrictSelected($event)'>
+                            <option  *ngFor="let uttarPradesh of up" [Value]="uttarPradesh.districtName">{{uttarPradesh.districtName}}</option>
+                          
+                            
+                            
+                            </select>
+                            
+                            <select class="stateAndDistrict" *ngIf="isRajasthan" [(ngModel)]="districtSelected" (ngModelChange)='onDistrictSelected($event)'>
+                            <option  *ngFor="let rajasthan of rj" [Value]="rajasthan.districtName">{{rajasthan.districtName}}</option>
+                          
+                            
+                            
+                            </select>
+                        </div>
+                        <br>
+                    <form #form1="ngForm" method="post" id="register" accept="" (ngSubmit)="register1()">
+                        
+                        <label>Name </label>
+                        <input type="text"  name="Fname" id="name" placeholder="Enter your Name" [(ngModel)]="student.studentName" required minlength="3" #Fname="ngModel">
+                        <div *ngIf="form1.submitted && Fname.invalid">
+                            <div class="error" *ngIf="Fname.errors.required">
+                              Name is required.
+                            </div>
+                            <div class="error" *ngIf="Fname.errors.minlength">
+                              Name must be at least 3 characters long.
+                            </div>
+                          </div><br><br>
+                        <label>Year Of Completion </label>
+                        <input type="number" name="yearOfCompletion" id="name" placeholder="Enter your Graduation Year" required [(ngModel)]="student.studentYOC" #yoc="ngModel">
+                        <div *ngIf="form1.submitted && yoc.invalid">
+                            <div class="error" *ngIf="yoc.errors.required">
+                              Year Of Completion is required.
+                            </div>
+                            </div><br><br>                  
+                        
+
+                        <label>Mobile </label>
+                        
+                        <input type="tel" name="mobile" id="name" placeholder="Enter your Mobile" [(ngModel)]="student.studentMobile" required minlength="10" #contact="ngModel">
+                        <div *ngIf="form1.submitted && contact.invalid">
+                            <div class="error" *ngIf="contact.errors.required">
+                              Contact Number is required.
+                            </div>
+                            <div class="error" *ngIf="contact.errors.minlength">
+                              Enter a valid Contact Number
+                            </div>
+                          </div><br><br>
+
+
+
+                        <label>Date Of Birth </label>
+                        
+                        <input type="date" name="dateOfBirth" id="name" [(ngModel)]="student.studentDOB" placeholder="Enter you Date of Birth" #dob="ngModel" required>
+                        <div *ngIf="form1.submitted && Fname.invalid">
+                            <div class="error" *ngIf="dob.errors.required">
+                              DOB is required.
+                            </div>
+                           
+                          </div>
+                          <br><br>
+                        
+                        <label>Email </label>
+                        <input type="email" name="email" id="name" [(ngModel)]="student.studentEmail" placeholder="Enter your Email" required #email="ngModel">
+                        <div *ngIf="form1.submitted && email.invalid">
+                            <div class="error" *ngIf="email.errors.required">
+                              Email is required.
+                            </div>
+                           
+                          </div><br><br>
+                        <label>Password </label>
+                        <input type="text" name="pass" id="name" [(ngModel)]="student.studentPassword" placeholder="Enter your Password" required #pass="ngModel">
+                        <div *ngIf="form1.submitted && pass.invalid">
+                            <div class="error" *ngIf="pass.errors.required">
+                              Password is required.
+                            </div>
+                           
+                          </div><br><br>
+                        
+                        
+                        <input type="submit" value="Submit" id="submit"/>
+                    </form>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    
+    <div class="footer">
+        <ul>
+            <p style="float: left; color: white; padding-left: 20px; height:auto">Login</p>
+            <p style="float: left; color: white; padding-left: 20px; height:auto">About Us</p>
+            <p style="float: left; color: white; padding-left: 20px; height:auto">Register</p>
+            <p style="float: right;color: white; padding-left: 20px; height:auto">All Copyrights Reserved</p>
+            <p style="float: center;color: white; padding-left: 20px; height:auto">© 2020 Larsen & Toubro Infotech Limited</p>
+        </ul>
+    </div>
+</body>
+
+</html>

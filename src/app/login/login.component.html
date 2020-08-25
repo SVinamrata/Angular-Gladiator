@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+
+</head>
+
+<body style="background-image: url(../assets/images/bg4.jpg);">
+    <div class="topnav">
+        <ul>
+            <li><a [routerLink]="['/loginLink']">Login</a></li>
+            <li><a [routerLink]="['/registerLink']">Register</a></li>
+            <li><a [routerLink]="['/homeLink']">Home</a></li>
+            
+  
+            
+            
+            <li><img src="../assets/images/logo.jpg" style="float: left; padding-left: 20px; height:auto"></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="main">
+            <div class="card">
+                <form id="loginForm" #loginForm='ngForm' (ngSubmit)="loginStudent(loginForm)">
+              
+                    <div class="container">
+                      <label for="uname"><b>Username</b></label>
+                      <input type="email" placeholder="Enter Username" id="uname" name="t1" [(ngModel)]=login.email>
+                      <span id="userSpan"> </span><br>
+                  
+                      <label for="psw"><b>Password</b></label>
+                      <input type="password" placeholder="Enter Password" id="psw" name="t2" [(ngModel)]=login.password>
+                      <span id="pswSpan"> </span><br>
+    
+                      <button type="submit" id="button">Login</button>
+                      <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                      </label>
+                    </div>
+                </form>
+                 </div>
+            </div>
+        </div>
+        <div class="footer">
+    <ul>
+        <p style="float: left; color: white; padding-left: 20px; height:auto">Contact</p>
+        <p style="float: left; color: white; padding-left: 20px; height:auto">About Us</p>
+        <p style="float: left; color: white; padding-left: 20px; height:auto">More Info</p>
+        <p style="float: right;color: white; padding-left: 20px; height:auto">All Copyrights Reserved</p>
+        <p style="float: center;color: white; padding-left: 20px; height:auto">© 2020 Larsen & Toubro Infotech Limited</p>
+    </ul>
+</div>
+</body>
+</html>

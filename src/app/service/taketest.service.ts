@@ -4,7 +4,9 @@ import { LevelFetchDto } from '../Dto/levelFetchDto';
 import { FetchQuestionsDto } from '../Dto/fetchQuestionDto';
 import { Question } from '../Entity/Question';
 import { Observable, from } from 'rxjs';
-import { Response } from '../Entity/Response';
+// import { Response } from '../Entity/Response';
+import { ScoreDto } from '../Dto/ScoreDto';
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +25,14 @@ export class TaketestService {
     return this.httpClient.post(url , fetchQues);
   }
 
-  sendResponses(reponses: Observable<Response>){
-    let url='http://localhost:8181/submitResponses';
-    return this.httpClient.post(url, reponses);
+  // sendResponses(reponses: Array<Response>){
+  //   let url='http://localhost:8181/submitResponses';
+  //   return this.httpClient.post(url, reponses);
+  // }
+
+  sendScore(score: ScoreDto){
+    let url='http://localhost:8181/acceptScore';
+    return this.httpClient.post(url , score);
   }
 
 }

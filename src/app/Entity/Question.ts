@@ -5,4 +5,5 @@ export class Question{
     choiceTwo:string;
     choiceThree:string;
     choiceFour:string;
+    correctAns:string;
 }

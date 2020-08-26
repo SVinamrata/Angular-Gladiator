@@ -8,6 +8,7 @@ import { TestinstructionsComponent } from './testinstructions/testinstructions.c
 import { LoginComponent } from './login/login.component';
 import { RegisComponent } from './register/regis.component';
 import { TaketestComponent } from './taketest/taketest.component';
+import { ResultPageComponent } from './result-page/result-page.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
   },
   {
     path: 'takeTestLink', component: TaketestComponent
+  },
+  {
+    path: 'resultPageLink', component: ResultPageComponent
   }
 
 ];

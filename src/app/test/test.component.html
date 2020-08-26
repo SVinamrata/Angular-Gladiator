@@ -1,16 +1,16 @@
 <h2>Take Test</h2>
 <div>
-<button  (click)="fetchAllSubject()" padding:10px>Show All the Available Tests</button>
+    <button (click)="fetchAllSubject()" padding:10px>Show All the Available Tests</button>
 </div>
-<div  *ngIf="data">
+<div *ngIf="data">
     <div class="container">
         <ul class="responsive-table">
             <li class="table-header">
                 <div class="col col-1">SUBJECT ID</div>
                 <div class="col col-2">
                     <div class="SearchBar">
-                <input type="text" name="search" placeholder="Search Exam.."></div>
-                    </div>
+                        <input type="text" name="search" placeholder="Search Exam.."></div>
+                </div>
                 <div class="col col-3"></div>
             </li>
             <li class="table-row" *ngFor="let d of data">
@@ -23,7 +23,7 @@
                         window.open("StudentDetails.html");
                     }
                 </script> -->
+            </li>
         </ul>
     </div>
 </div>
-

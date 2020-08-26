@@ -7,6 +7,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { TestinstructionsComponent } from './testinstructions/testinstructions.component';
 import { LoginComponent } from './login/login.component';
 import { RegisComponent } from './register/regis.component';
+import { TaketestComponent } from './taketest/taketest.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,9 @@ const routes: Routes = [
   },
   {
     path: 'registerLink', component: RegisComponent
+  },
+  {
+    path: 'takeTestLink', component: TaketestComponent
   }
 
 ];

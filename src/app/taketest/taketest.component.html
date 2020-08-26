@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button (click)="fetchCurrentLevel()">START</button>
+
+    <form *ngIf="ques">
+        <ol>
+            <li>
+                <div><b>{{ques.question}}</b></div>
+                <div><input type="radio" name="response" value = "ques.choiceOne" [(ngModel)] = "response.studentResponse">{{ques.choiceOne}}</div>
+                <div><input type="radio" name="response" value = "ques.choiceTwo" [(ngModel)] = "response.studentResponse">{{ques.choiceTwo}}</div>
+                <div><input type="radio" name="response" value = "ques.choiceThree" [(ngModel)] = "response.studentResponse">{{ques.choiceThree}}</div>
+                <div><input type="radio" name="response" value = "ques.choiceFour" [(ngModel)] = "response.studentResponse">{{ques.choiceFour}}</div>
+            </li>
+        </ol>
+    </form>
+    <button (click)= "nextQuestion()">Next</button>
+    <button (click)= "previousQuestion()">Previous</button>
+    <button (clicl)= "submitTest()">Submit</button>
+
+</body>
+
+</html>

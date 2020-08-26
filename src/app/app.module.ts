@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisComponent } from './register/regis.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { StudentServiceService } from './service/student-service.service';
+import { TaketestComponent } from './taketest/taketest.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StudentServiceService } from './service/student-service.service';
     StudentDetailsComponent,
     TestrouteComponent,
     LoginComponent,
-    RegisComponent
+    RegisComponent,
+    TaketestComponent
   ],
   imports: [
     BrowserModule,

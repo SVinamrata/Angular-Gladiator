@@ -137,6 +137,7 @@ export class RegisComponent implements OnInit {
         this.router.navigate(['']);
       }
       else{
+        alert(JSON.stringify(data));
         this.router.navigate(['registerLink']);
       }
 

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "OnlineExam"
+    }
+  },
+  "defaultProject": "OnlineExam",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestserviceService } from "../service/testservice.service";
 import { Router } from '@angular/router';
+import { Exam } from "../models/exam";
 
 @Component({
   selector: 'app-test',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent{
+  exam=new Exam();
   data:any;
   constructor(private service:TestserviceService,private router: Router){}
   fetchAllSubject(){
@@ -15,7 +17,8 @@ export class TestComponent{
       this.data=data;
     });
   }
-  myFunction(){
-    this.router.navigateByUrl('studentDetailsLink')
+  myFunction(subjectId:any){
+    sessionStorage.setItem("subjectId",subjectId);
+    this.router.navigateByUrl('studentDetailsLink');
   }
 }

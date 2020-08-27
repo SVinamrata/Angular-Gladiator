@@ -1,0 +1,48 @@
+<div class="div">
+    <h2 class="header"> View Questions for a Subject</h2>
+    <form>
+      <div class="name">
+        <label for="name">Subject Id:</label>
+        <input  class="input" type="number" [(ngModel)]="question.questionSubject.subjectId" placeholder="Enter Subject Id" name="name"  id="name">
+      </div>
+    
+    
+      <button class="btn" (click)="findQuestionsForSubject()">FInd</button>
+    </form>
+    </div>
+    <div *ngIf="isdata">
+        
+        <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="column">Question Id</th>
+          <th class="column">Level</th>
+          <th class="column">Question</th>
+          <th class="column">Choice One</th>
+          <th class="column">Choice Two</th>
+          <th class="column">Choice Three</th>
+          <th class="column">Choice Four</th>
+          <th class="column">Correct Answer</th>
+          <th class="column">Question Subject</th>
+    
+          </tr>
+        </thead>
+        <tbody>
+            <tr class="row" *ngFor="let question of questions">
+                <td class="column">{{question.questionId}}</td>
+                <td class="column">{{question.level}}</td>
+               
+                <td class="column">{{question.question}}</td>
+                <td class="column">{{question.choiceOne}}</td>
+                
+                <td class="column">{{question.choiceTwo}}</td>
+                <td class="column">{{question.choiceThree}}</td>
+                <td class="column">{{question.choiceFour}}</td>
+                <td class="column">{{question.correctAns}}</td>
+                <td class="column">{{question.questionSubject.subjectId}}</td>
+                
+                </tr>
+        </tbody>
+          </table>
+          </div>
+    

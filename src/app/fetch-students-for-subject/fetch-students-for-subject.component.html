@@ -1,0 +1,46 @@
+<div class="div">
+    <h2 class="header"> View Students for a Subject</h2>
+    <form>
+      <div class="name">
+        <label for="name">Subject Id:</label>
+        <input  class="input" type="number" [(ngModel)]="exam.examSubject.subjectId" placeholder="Enter Subject Id" name="name"  id="name">
+      </div>
+    
+    
+      <button class="btn" (click)="findQuestionsForSubject()">FInd</button>
+    </form>
+    </div>
+    <div *ngIf="isdata">
+        
+        <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="column">Student Id</th>
+          <th class="column">Student Name</th>
+          <th class="column">Student DOB</th>
+          <th class="column">Student Email</th>
+          <th class="column">Student City</th>
+          <th class="column">Student State</th>
+          <th class="column">Student Mobile</th>
+          
+    
+          </tr>
+        </thead>
+        <tbody>
+            <tr class="row" *ngFor="let student of students">
+                <td class="column">{{student.studentID}}</td>
+                <td class="column">{{student.studentName}}</td>
+               
+                <td class="column">{{student.studentDOB}}</td>
+                <td class="column">{{student.studentEmail}}</td>
+                
+                <td class="column">{{student.studentCity}}</td>
+                <td class="column">{{student.studentState}}</td>
+                <td class="column">{{student.studentMobile}}</td>
+                
+                
+                </tr>
+        </tbody>
+          </table>
+          </div>
+    

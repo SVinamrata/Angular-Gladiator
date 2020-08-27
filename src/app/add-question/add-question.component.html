@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    
+
+</head>
+
+<body>
+    
+
+
+    <div class="row">
+        <div class="main">
+            <div class="card">
+                <div class="register">
+                    <h1>Add a new Question!!</h1>
+                   
+                        <br>
+                    <form #form1="ngForm" method="post" id="register"  (ngSubmit)="addQuestion()">
+                        
+                        <label>Question </label>
+                        <input type="text"  name="Fname" id="name" placeholder="Enter your Question" [(ngModel)]="question.question"  required minlength="3" #Fname="ngModel">
+                        <div *ngIf="form1.submitted && Fname.invalid">
+                            <div class="error" *ngIf="Fname.errors.required">
+                              Question Is required is required.
+                            </div>
+                            <div class="error" *ngIf="Fname.errors.minlength">
+                              Question must be at least 3 characters long.
+                            </div>
+                          </div><br><br>
+                        <label>Level </label>
+                        <input type="number" min="1" max="5" (keypress)='yearOC($event)' name="yearOfCompletion" id="name" placeholder="Enter the question Level" required [(ngModel)]="question.level" #yoc="ngModel">
+                        <div *ngIf="form1.submitted && yoc.invalid">
+                            <div class="error" *ngIf="yoc.errors.required">
+                              level of question is required.
+                            </div>
+                            </div><br><br>  
+                           
+
+                        <label>Option One </label>
+                        
+                        <input type="text" name="mobile" id="name" placeholder="Enter Option1"  [(ngModel)]="question.choiceOne" required  #contact="ngModel">
+                        <div *ngIf="form1.submitted && contact.invalid">
+                            <div class="error" *ngIf="contact.errors.required">
+                              Option one is required.
+                            </div>
+                           
+                          </div><br><br>
+
+
+
+                        <label>Option Two </label>
+                        
+                        <input type="text" name="dateOfBirth" id="name" [(ngModel)]="question.choiceTwo" placeholder="Enter Option two" #dob="ngModel" required>
+                        <div *ngIf="form1.submitted && Fname.invalid">
+                            <div class="error" *ngIf="dob.errors.required">
+                              Option two is required.
+                            </div>
+                           
+                          </div>
+                          <br><br>
+                        
+                        <label>Option Three </label>
+                        <input type="text" name="email" id="name" [(ngModel)]="question.choiceThree"  placeholder="Enter Option three" required #email="ngModel">
+                        <div *ngIf="form1.submitted && email.invalid">
+                            <div class="error" *ngIf="email.errors.required">
+                              Option Three is required.
+                            </div>
+                           
+                           
+                          </div><br><br>
+                        <label>Option Four </label>
+                        <input type="text" name="pass" id="name"  [(ngModel)]="question.choiceFour" placeholder="Enter Option Four" required #pass="ngModel">
+                        <div *ngIf="form1.submitted && pass.invalid">
+                            <div class="error"  *ngIf="pass.errors.required">
+                              Option Four is required.
+                              </div>
+                           
+                           
+                          </div><br><br>
+                          
+                            <label >Correct Answer</label>
+                        
+                        
+                            <input type="text" name="confirmPassword" id="name" placeholder="Correct Answer " [(ngModel)]='question.correctAns' required #correct="ngModel" >
+                            <div *ngIf="form1.submitted && correct.invalid">
+                                <div class="error"  *ngIf="correct.errors.required">
+                                  Correct is required.
+                                  </div>
+                               
+                               
+                              </div><br><br>
+                       <input type="number" name="subject" id="name" placeholder="Enter Subject Name" [(ngModel)]='question.questionSubject.subjectId' required #sub="ngModel">
+                       <div *ngIf="form1.submitted && sub?.invalid">
+                        <div class="error"  *ngIf="sub.errors.required">
+                          Subject is required.
+                          </div>
+                         
+                          </div>
+                          <br><br>
+                          {{question.questionSubject.subjectId}}
+                        
+                        
+                       <button type="submit" id="submit" [disabled]='!form1.valid' >Submit</button>
+                        
+                    </form>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    
+   
+</body>
+
+</html>

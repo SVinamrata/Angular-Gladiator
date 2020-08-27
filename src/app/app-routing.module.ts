@@ -11,6 +11,16 @@ import { ResultPageComponent } from './result-page/result-page.component';
 import { LoginAdminComponent } from "./login-admin/login-admin.component";
 import { HomeComponent } from "./home/home.component";
 import { TestrouteComponent } from "./testroute/testroute.component";
+import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
+
+import { AddSubjectComponent } from './add-subject/add-subject.component';
+import { QuestionComponent } from './question/question.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { FetchQuestionsForSubjectComponent } from './fetch-questions-for-subject/fetch-questions-for-subject.component';
+import { FetchStudentsForSubjectComponent } from './fetch-students-for-subject/fetch-students-for-subject.component';
+import { FetchStudentsResultForASubjectComponent } from "./fetch-students-result-for-asubject/fetch-students-result-for-asubject.component";
+import { SubjectComponent } from './subject/subject.component';
+
 
 const routes: Routes = [
   {
@@ -41,7 +51,23 @@ const routes: Routes = [
   },
   {
     path: 'resultPageLink', component: ResultPageComponent
-  }
+  },
+  {
+    path:'AdminDashboardLink' , component: AdminDashboardComponent,
+    children: [
+      { path: 'subject', component: SubjectComponent },
+      { path: 'addSubject', component: AddSubjectComponent },
+      { path: 'question', component: QuestionComponent },
+      { path: 'addQuestion', component: AddQuestionComponent },
+      { path: 'FetchQuestionForSubject', component: FetchQuestionsForSubjectComponent },
+      
+      { path: 'FetchStudentsForSubject', component: FetchStudentsForSubjectComponent },
+      
+    
+    
+    ]
+  },
+  
 
 ];
 

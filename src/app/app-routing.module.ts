@@ -10,6 +10,7 @@ import { TaketestComponent } from './taketest/taketest.component';
 import { ResultPageComponent } from './result-page/result-page.component';
 import { LoginAdminComponent } from "./login-admin/login-admin.component";
 import { HomeComponent } from "./home/home.component";
+import { TestrouteComponent } from "./testroute/testroute.component";
 
 const routes: Routes = [
   {
@@ -25,7 +26,8 @@ const routes: Routes = [
     path:'dashboard',component:DashboardComponent,
     children: [
       { path:'reportLink',component:ReportComponent, pathMatch: 'full'},
-      { path:'testLink',component:TestComponent, pathMatch: 'full'}
+      { path:'testLink',component:TestComponent, pathMatch: 'full'},
+      { path:'levelLink',component:TestrouteComponent, pathMatch: 'full'}
     ]
   },
   {

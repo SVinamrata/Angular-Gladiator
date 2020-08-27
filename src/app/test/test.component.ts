@@ -23,7 +23,7 @@ export class TestComponent{
   }
   myFunction(subjectId:any , subjectName:any){
     sessionStorage.setItem("subjectId",subjectId);
-    this.router.navigateByUrl('testInstructionsLink');
+    this.router.navigateByUrl('/dashboard/levelLink');
   }
 
 

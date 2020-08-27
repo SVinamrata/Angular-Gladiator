@@ -8,10 +8,18 @@ import { LoginComponent } from './login/login.component';
 import { RegisComponent } from './register/regis.component';
 import { TaketestComponent } from './taketest/taketest.component';
 import { ResultPageComponent } from './result-page/result-page.component';
+import { LoginAdminComponent } from "./login-admin/login-admin.component";
+import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
   {
-    path: '' , component: LoginComponent
+    path:'' , component: HomeComponent
+  },
+  {
+    path:'AdminLink' , component: LoginAdminComponent
+  },
+  {
+    path: 'loginLink' , component: LoginComponent
   },
   {
     path:'dashboard',component:DashboardComponent,

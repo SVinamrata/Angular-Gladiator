@@ -3,4 +3,6 @@ export class Status{
     message: any;
     studentId:any;
     studentName:string;
+    adminId:any;
+    adminName:any;
 }

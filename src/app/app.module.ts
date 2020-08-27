@@ -16,6 +16,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { StudentServiceService } from './service/student-service.service';
 import { TaketestComponent } from './taketest/taketest.component';
 import { ResultPageComponent } from './result-page/result-page.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ResultPageComponent } from './result-page/result-page.component';
     LoginComponent,
     RegisComponent,
     TaketestComponent,
-    ResultPageComponent
+    ResultPageComponent,
+    LoginAdminComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -30,7 +30,7 @@ export class LoginAdminComponent implements OnInit {
         let adminName = data.adminName;
         sessionStorage.setItem('adminId', adminId);
         sessionStorage.setItem('adminName', adminName);
-        this.router.navigate(['']);
+        this.router.navigate(['AdminDashboardLink']);
       }
       else {
         this.message = data.message;

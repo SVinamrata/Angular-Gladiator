@@ -1,0 +1,20 @@
+.name{
+    float: left;
+    margin-right: 30px;
+}
+.input{
+    
+    text-align: left;
+    padding: 5px;
+    border-radius: 3px;
+}
+.div{
+    height: 80px;
+    border-radius: 10px;
+    
+}
+.btn{
+    text-align:center;
+    padding:5px;
+    border-radius: 3px;
+}

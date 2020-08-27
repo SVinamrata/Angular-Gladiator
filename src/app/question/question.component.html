@@ -1,0 +1,35 @@
+<div >
+    
+    <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="column">Question Id</th>
+      <th class="column">Level</th>
+      <th class="column">Question</th>
+      <th class="column">Choice One</th>
+      <th class="column">Choice Two</th>
+      <th class="column">Choice Three</th>
+      <th class="column">Choice Four</th>
+      <th class="column">Correct Answer</th>
+      <th class="column">Question Subject</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="row" *ngFor="let question of questions">
+            <td class="column">{{question.questionId}}</td>
+            <td class="column">{{question.level}}</td>
+           
+            <td class="column">{{question.question}}</td>
+            <td class="column">{{question.choiceOne}}</td>
+            
+            <td class="column">{{question.choiceTwo}}</td>
+            <td class="column">{{question.choiceThree}}</td>
+            <td class="column">{{question.choiceFour}}</td>
+            <td class="column">{{question.correctAns}}</td>
+            <td class="column">{{question.questionSubject.subjectId}}</td>
+            <td class="column"><button class="btn" (click)="deleteQuestion(question)"> Delete Subject</button></td>
+            </tr>
+    </tbody>
+      </table>
+      </div>

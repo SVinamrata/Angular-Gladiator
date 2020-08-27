@@ -26,6 +26,7 @@ export class RegisComponent implements OnInit {
 
 
   student:Student = new Student();
+  confirmPass:any="";
 
   nameOfStudent:any;
   stateSelected:any="Uttrakhand";
@@ -66,6 +67,8 @@ export class RegisComponent implements OnInit {
   modifiedText: string;
 
   ngOnInit(){
+    this.student.studentState="Uttrakhand";
+    this.student.studentCity="Dehradun";
    
    // this.empl.Name=this.employee.indexOf(this.empSelected)[1];
     
@@ -80,8 +83,8 @@ export class RegisComponent implements OnInit {
   {
     if(event=="Uttrakhand")
     {
-      this.stateselected1="Uttrakhand";
-      this.districtSelected="Dehradun"
+      this.student.studentState="Uttrakhand";
+      this.student.studentCity="Dehradun"
       this.isMadhyaPradesh=false;
       this.isUttrakhand=true;
       this.isMadhyaPradesh=false;
@@ -89,8 +92,8 @@ export class RegisComponent implements OnInit {
 
     }
     else if (event=="Madhya Pradesh") {
-      this.stateselected1="Madhya Pradesh";
-      this.districtSelected="Jabalpur";
+      this.student.studentState="Madhya Pradesh";
+      this.student.studentCity="Jabalpur";
       this.isMadhyaPradesh=true;
       this.isUttrakhand=false;
       this.isRajasthan=false;
@@ -98,8 +101,8 @@ export class RegisComponent implements OnInit {
       
     } 
     else if (event=="Uttar Pradesh") {
-      this.stateselected1="UttarPradesh";
-      this.districtSelected="Amethi";
+      this.student.studentState="UttarPradesh";
+      this.student.studentCity="Amethi";
       this.isMadhyaPradesh=false;
       this.isUttrakhand=false;
       this.isUttarPradesh=true;
@@ -110,14 +113,17 @@ export class RegisComponent implements OnInit {
       
     else if(event=="Rajasthan")
     {
-      this.stateselected1="Rajasthan";
-      this.districtSelected="Kota";
+      this.student.studentState="Rajasthan";
+      this.student.studentCity="Kota";
       this.isMadhyaPradesh=false;
       this.isUttrakhand=false;
       this.isUttarPradesh=false;
       this.isRajasthan=true;
       
     }
+  }
+  yearOC(event){ 
+    event.preventDefault();
   }
   onDistrictSelected(event:any)
   { 
@@ -130,18 +136,48 @@ export class RegisComponent implements OnInit {
     console.log(this.student.studentPassword);
     
     
-    this.service.registerStudent(this.student).subscribe(data => {
-      // alert(JSON.stringify(data));
-      this.data = JSON.stringify(data);
-      if(Object.values(data)[0] == "SUCCESS"){
-        this.router.navigate(['']);
-      }
-      else{
-        alert(JSON.stringify(data));
-        this.router.navigate(['registerLink']);
-      }
+    this.service.registerStudent(this.student).subscribe(data =>
+       {
+          alert(JSON.stringify(data));
+          this.data = JSON.stringify(data);
+          if(Object.values(data)[0] == "SUCCESS")
+          {
+            this.Email();
+            this.router.navigate(['']);
+          }
+          else{
+            alert(JSON.stringify(data));
+            this.router.navigate(['registerLink']);
+          }
 
-  })
+ `  ` })
 
-}
+  }
+  Email()
+  {
+    this.service.sendEmail(this.student).subscribe(data=>console.log(data));
+  }
+  isNumber(event, id, l) {
+    var mobile = (<HTMLInputElement>document.getElementById(id));
+    var data = mobile.value;
+    var key = event.key;
+    if (isNaN(key) || data.length > l)
+      event.preventDefault();
+  }
+  isAName(event) {
+    var key = event.key;
+    if ((key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z') || key == ' ') {
+
+    }
+    else {
+      event.preventDefault();
+    }
+  }
+  
+  confirmPassword(): boolean {
+    if (this.student.studentPassword == this.confirmPass){
+      return true;      
+    }
+    return false;
+  }
 }

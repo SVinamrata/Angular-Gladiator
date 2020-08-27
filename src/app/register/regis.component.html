@@ -25,115 +25,131 @@
 
 
     <div class="row">
-        <div class="main">
-            <div class="card">
-                <div class="register">
-                    <h1>Register Here</h1>
-                    <div class="dropdown">
-                        <label>State </label>                        
-                        <select class="stateAndDistrict" [(ngModel)]="stateSelected" (ngModelChange)='onStateSelected($event)'>
-                            <option class="dropdown" *ngFor="let state of state" [Value]="state.Name">{{state.Name}}</option>
-                        </select><br><br>
-                                               
-                        <label>City </label>
-                        <select class="stateAndDistrict" *ngIf="isUttrakhand" [(ngModel)]="districtSelected" (ngModelChange)='onDistrictSelected($event)'>
-                        <option  *ngFor="let uttrakhand of uk" [Value]="uttrakhand.districtName">{{uttrakhand.districtName}}</option>                         
-                                       
-                            </select>
-                           
+      <div class="main">
+          <div class="card">
+              <div class="register">
+                  <h1>Register Here</h1>
+                  <div class="dropdown">
+                      <label>State </label>                        
+                      <select class="stateAndDistrict" [(ngModel)]="student.studentState" (ngModelChange)='onStateSelected($event)'>
+                          <option class="dropdown" *ngFor="let state of state" [Value]="state.Name">{{state.Name}}</option>
+                      </select><br><br>
+                                             
+                      <label>City </label>
+                      <select class="stateAndDistrict" *ngIf="isUttrakhand" [(ngModel)]="student.studentCity" (ngModelChange)='onDistrictSelected($event)'>
+                      <option  *ngFor="let uttrakhand of uk" [Value]="uttrakhand.districtName">{{uttrakhand.districtName}}</option>                         
+                                     
+                          </select>
+                         
+                        
+                          <select class="stateAndDistrict" *ngIf="isMadhyaPradesh" [(ngModel)]="student.studentCity" (ngModelChange)='onDistrictSelected($event)'>
+                          <option  *ngFor="let madhyaPradesh of mp" [Value]="madhyaPradesh.districtName">{{madhyaPradesh.districtName}}</option>
+                                     
                           
-                            <select class="stateAndDistrict" *ngIf="isMadhyaPradesh" [(ngModel)]="districtSelected" (ngModelChange)='onDistrictSelected($event)'>
-                            <option  *ngFor="let madhyaPradesh of mp" [Value]="madhyaPradesh.districtName">{{madhyaPradesh.districtName}}</option>
-                                       
-                            
-                            </select>
+                          </select>
+                      
+                          <select class="stateAndDistrict" *ngIf="isUttarPradesh" [(ngModel)]="student.studentCity" (ngModelChange)='onDistrictSelected($event)'>
+                          <option  *ngFor="let uttarPradesh of up" [Value]="uttarPradesh.districtName">{{uttarPradesh.districtName}}</option>
                         
-                            <select class="stateAndDistrict" *ngIf="isUttarPradesh" [(ngModel)]="districtSelected" (ngModelChange)='onDistrictSelected($event)'>
-                            <option  *ngFor="let uttarPradesh of up" [Value]="uttarPradesh.districtName">{{uttarPradesh.districtName}}</option>
                           
-                            
-                            
-                            </select>
-                            
-                            <select class="stateAndDistrict" *ngIf="isRajasthan" [(ngModel)]="districtSelected" (ngModelChange)='onDistrictSelected($event)'>
-                            <option  *ngFor="let rajasthan of rj" [Value]="rajasthan.districtName">{{rajasthan.districtName}}</option>
                           
-                            
-                            
-                            </select>
-                        </div>
-                        <br>
-                    <form #form1="ngForm" method="post" id="register" accept="" (ngSubmit)="register1()">
+                          </select>
+                          
+                          <select class="stateAndDistrict" *ngIf="isRajasthan" [(ngModel)]="student.studentCity" (ngModelChange)='onDistrictSelected($event)'>
+                          <option  *ngFor="let rajasthan of rj" [Value]="rajasthan.districtName">{{rajasthan.districtName}}</option>
                         
-                        <label>Name </label>
-                        <input type="text"  name="Fname" id="name" placeholder="Enter your Name" [(ngModel)]="student.studentName" required minlength="3" #Fname="ngModel">
-                        <div *ngIf="form1.submitted && Fname.invalid">
-                            <div class="error" *ngIf="Fname.errors.required">
-                              Name is required.
-                            </div>
-                            <div class="error" *ngIf="Fname.errors.minlength">
-                              Name must be at least 3 characters long.
-                            </div>
-                          </div><br><br>
-                        <label>Year Of Completion </label>
-                        <input type="number" name="yearOfCompletion" id="name" placeholder="Enter your Graduation Year" required [(ngModel)]="student.studentYOC" #yoc="ngModel">
-                        <div *ngIf="form1.submitted && yoc.invalid">
-                            <div class="error" *ngIf="yoc.errors.required">
-                              Year Of Completion is required.
-                            </div>
-                            </div><br><br>                  
-                        
-
-                        <label>Mobile </label>
-                        
-                        <input type="tel" name="mobile" id="name" placeholder="Enter your Mobile" [(ngModel)]="student.studentMobile" required minlength="10" #contact="ngModel">
-                        <div *ngIf="form1.submitted && contact.invalid">
-                            <div class="error" *ngIf="contact.errors.required">
-                              Contact Number is required.
-                            </div>
-                            <div class="error" *ngIf="contact.errors.minlength">
-                              Enter a valid Contact Number
-                            </div>
-                          </div><br><br>
-
-
-
-                        <label>Date Of Birth </label>
-                        
-                        <input type="date" name="dateOfBirth" id="name" [(ngModel)]="student.studentDOB" placeholder="Enter you Date of Birth" #dob="ngModel" required>
-                        <div *ngIf="form1.submitted && Fname.invalid">
-                            <div class="error" *ngIf="dob.errors.required">
-                              DOB is required.
-                            </div>
-                           
+                          
+                          
+                          </select>
+                      </div>
+                      <br>
+                  <form #form1="ngForm" method="post" id="register"  (ngSubmit)="register1()">
+                      
+                      <label>Name </label>
+                      <input type="text"  name="Fname" id="name" placeholder="Enter your Name" [(ngModel)]="student.studentName" (keypress)='isAName($event)' required minlength="3" #Fname="ngModel">
+                      <div *ngIf="form1.submitted && Fname.invalid">
+                          <div class="error" *ngIf="Fname.errors.required">
+                            Name is required.
                           </div>
-                          <br><br>
+                          <div class="error" *ngIf="Fname.errors.minlength">
+                            Name must be at least 3 characters long.
+                          </div>
+                        </div><br><br>
+                      <label>Year Of Graduation </label>
+                      <input type="number" min="2016" max="2020" (keypress)='yearOC($event)' name="yearOfCompletion" id="name" placeholder="Enter your Graduation Year" required [(ngModel)]="student.studentYOC" #yoc="ngModel">
+                      <div *ngIf="form1.submitted && yoc.invalid">
+                          <div class="error" *ngIf="yoc.errors.required">
+                            Year Of Completion is required.
+                          </div>
+                          </div><br><br>  
+                         
+
+                      <label>Mobile </label>
+                      
+                      <input type="tel" name="mobile" id="name" placeholder="Enter your Mobile" (keypress)='isNumber($event,"name",10)' [(ngModel)]="student.studentMobile" required minlength="10" #contact="ngModel">
+                      <div *ngIf="form1.submitted && contact.invalid">
+                          <div class="error" *ngIf="contact.errors.required">
+                            Contact Number is required.
+                          </div>
+                          <div class="error" *ngIf="contact.errors.minlength">
+                            Enter a valid Contact Number
+                          </div>
+                        </div><br><br>
+
+
+
+                      <label>Date Of Birth </label>
+                      
+                      <input type="date" name="dateOfBirth" id="name" [(ngModel)]="student.studentDOB" placeholder="Enter you Date of Birth" #dob="ngModel" required>
+                      <div *ngIf="form1.submitted && Fname.invalid">
+                          <div class="error" *ngIf="dob.errors.required">
+                            DOB is required.
+                          </div>
+                         
+                        </div>
+                        <br><br>
+                      
+                      <label>Email </label>
+                      <input type="email" name="email" id="name" [(ngModel)]="student.studentEmail"  pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{1,3})+$" placeholder="Enter your Email" required #email="ngModel">
+                      <div *ngIf="form1.submitted && email.invalid">
+                          <div class="error" *ngIf="email.errors.required">
+                            Email is required.
+                          </div>
+                          <div class="error" *ngIf="email.errors.email">
+                            Email must be a valid email address.
+                          </div>
+                         
+                        </div><br><br>
+                      <label>Password </label>
+                      <input type="password" name="pass" id="name" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,15}$" [(ngModel)]="student.studentPassword" placeholder="Enter your Password" required #pass="ngModel">
+                      <div *ngIf="form1.submitted && pass.invalid">
+                          <div class="error"  *ngIf="pass.errors.required">
+                            Password is required.
+                          </div>
+                          <div class="error"  *ngIf="pass.errors.minlength">
+                            Password must be atleast 8 characters.
+                          </div>
+                         
+                        </div><br><br>
                         
-                        <label>Email </label>
-                        <input type="email" name="email" id="name" [(ngModel)]="student.studentEmail" placeholder="Enter your Email" required #email="ngModel">
-                        <div *ngIf="form1.submitted && email.invalid">
-                            <div class="error" *ngIf="email.errors.required">
-                              Email is required.
-                            </div>
-                           
-                          </div><br><br>
-                        <label>Password </label>
-                        <input type="text" name="pass" id="name" [(ngModel)]="student.studentPassword" placeholder="Enter your Password" required #pass="ngModel">
-                        <div *ngIf="form1.submitted && pass.invalid">
-                            <div class="error" *ngIf="pass.errors.required">
-                              Password is required.
-                            </div>
-                           
-                          </div><br><br>
-                        
-                        
-                        <input type="submit" value="Submit" id="submit"/>
-                    </form>
-                </div>
-            </div>
-            
-            </div>
-        </div>
+                          <label >Confirm Password:</label>
+                      
+                      
+                          <input type="password" name="confirmPassword" id="name" placeholder="Confirm Password"
+                              [(ngModel)]='confirmPass' required>
+                          <div *ngIf='!confirmPassword()' style="color: red;">Password mismatched</div>
+                     <br><br>
+                      
+                      
+                     <button type="submit" id="submit" [disabled]='!form1.valid || !confirmPassword' aria-placeholder="Register">Register</button>
+                      
+                  </form>
+              </div>
+          </div>
+          
+          </div>
+      </div>
+  
     
     <div class="footer">
         <ul>

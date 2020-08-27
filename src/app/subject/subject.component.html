@@ -1,0 +1,18 @@
+<div >
+    
+    <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="column">Subject Id</th>
+      <th class="column">Subject Name</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="row" *ngFor="let subject of subjects">
+            <td class="column">{{subject.subjectId}}</td>
+            <td class="column">{{subject.subjectName}}</td>
+            <td class="column"><button class="btn" (click)="deleteSubject(subject)"> Delete Subject</button></td>
+            </tr>
+    </tbody>
+      </table>
+      </div>

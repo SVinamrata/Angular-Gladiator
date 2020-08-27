@@ -1,29 +1,23 @@
-<h2>Take Test</h2>
 <div>
-    <button (click)="fetchAllSubject()" padding:10px>Show All the Available Tests</button>
-</div>
-<div *ngIf="data">
-    <div class="container">
-        <ul class="responsive-table">
-            <li class="table-header">
-                <div class="col col-1">SUBJECT ID</div>
-                <div class="col col-2">
-                    <div class="SearchBar">
-                        <input type="text" name="search" placeholder="Search Exam.."></div>
-                </div>
-                <div class="col col-3"></div>
-            </li>
-            <li class="table-row" *ngFor="let d of data">
-                <div class="col col-1" data-label="Subject_ID">{{d.subjectId}}</div>
-                <div class="col col-2" data-label="Subject_Name">{{d.subjectName}}</div>
-                <div class="col col-3" data-label="">
-                    <button (click)="myFunction(d.subjectId)">Click here to Take Test</button></div>
-                <!--  <script>
-                    function myFunction() {
-                        window.open("StudentDetails.html");
-                    }
-                </script> -->
-            </li>
-        </ul>
+    <button class="mainButton"  (click)="fetchAllSubject()" padding:10px style="color:black;">Show All the Available Tests</button><br>
     </div>
-</div>
+    <div  *ngIf="data">
+        <div class="container">
+            <ul class="responsive-table">
+                <li class="table-header">
+                    <div class="col col-1">SUBJECT ID</div>
+                    <div class="col col-2">SUBJECT NAME</div>
+                        <!-- <div class="SearchBar">
+                    <input type="text" name="search" placeholder="Search Exam.."></div>
+                        </div> -->
+                    <div class="col col-3"></div>
+                </li>
+                <li class="table-row" *ngFor="let d of data">
+                    <div class="col col-1" data-label="Subject_ID">{{d.subjectId}}</div>
+                    <div class="col col-2" data-label="Subject_Name">{{d.subjectName}}</div>
+                    <div class="col col-3" data-label="">
+                        <button class="bttn" (click)="myFunction(d.subjectId)" style="color:black;">Click here to Take Test</button></div>
+            </ul>
+        </div>
+    </div>
+    

@@ -9,7 +9,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReportComponent } from './report/report.component';
 import { TestComponent } from './test/test.component';
 import { TestinstructionsComponent } from './testinstructions/testinstructions.component';
-import { StudentDetailsComponent } from './student-details/student-details.component';
 import { TestrouteComponent } from './testroute/testroute.component';
 import { LoginComponent } from './login/login.component';
 import { RegisComponent } from './register/regis.component';
@@ -25,7 +24,6 @@ import { ResultPageComponent } from './result-page/result-page.component';
     ReportComponent,
     TestComponent,
     TestinstructionsComponent,
-    StudentDetailsComponent,
     TestrouteComponent,
     LoginComponent,
     RegisComponent,

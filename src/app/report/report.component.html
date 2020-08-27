@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
     <div>
         <div class="container">
-            <h2>Test Reports</h2>
-            <button (click)="viewResults()">Click To View Reports</button>
+            <button class="mainButton" (click)="viewResults()" style="color:black;">Click To View Reports</button><br>
             <ul *ngIf="data" class="responsive-table">
                 <li class="table-header">
                     <div class="col col-1">Result ID</div>
@@ -27,13 +17,9 @@
                     <div class="col col-1" data-label="Amount">{{res.examSubject}}</div>
                     <div class="col col-2" data-label="Amount">{{res.resultStatus}}</div>
                     <div class="col col-3" data-label="Amount">{{res.levelPassed}}</div>
-                    <div class="col col-4" data-label="Amount">{{res.score}}<span><button>Download</button></span></div>
+                    <div class="col col-4" data-label="Amount">{{res.score}}<span><button class="bttn" style="color:black;">Download</button></span></div>
                 </li>
 
             </ul>
         </div>
     </div>
-
-</body>
-
-</html>

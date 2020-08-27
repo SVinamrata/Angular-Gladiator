@@ -1,5 +1,4 @@
 
-
   .button {
     margin-top: 10px;
     margin-left: 50px;
@@ -66,7 +65,6 @@ body {
   padding: 0;
   font-family: 'Courier New', Courier, monospace;
  color: white;
-
 }
 .container {
   background-color: grey;
@@ -74,8 +72,8 @@ body {
   width: 1000px;
   margin: 0px 0px 0px 200px;
   align-content: center;
-  margin-top: 250px;
-  font-size: 20px;
+  margin-top: 150px;
+  font-size: 40px;
 }
 
 form {

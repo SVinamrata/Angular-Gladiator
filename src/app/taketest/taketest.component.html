@@ -9,7 +9,7 @@
 
 <body>
     <button (click)="fetchCurrentLevel()" style="align-content: center;">START</button>
-
+    <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div>
     <form *ngIf="isStarted">
                 <div><b>{{index+1}}.{{ques.question}}</b></div>
                 <div><input type="radio" name="response" value = "{{ques.choiceOne}}" [(ngModel)] = "response.studentResponse">{{ques.choiceOne}}</div>

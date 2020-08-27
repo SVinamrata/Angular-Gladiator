@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { ScoreDto } from '../Dto/ScoreDto';
 import { ResultStatus } from '../Dto/resultStatus';
 import { Router } from '@angular/router';
+import { QuizConfig } from '../models/quiz-config';
 
 @Component({
   selector: 'app-taketest',
@@ -33,6 +34,14 @@ export class TaketestComponent {
   responseMap = new Map();
   scoreDto:ScoreDto = new ScoreDto();
   resultStatus:any;
+  timer: any = null;
+  startTime: Date;
+  endTime: Date;
+  ellapsedTime = "00:00";
+  duration = "";
+  config: QuizConfig ={
+    duration: 300
+  };
 
   constructor(private service: TaketestService , private router: Router){ }
 
@@ -61,13 +70,34 @@ export class TaketestComponent {
       console.log(this.questionListSize);
       this.ques = this.questionList[0];
       this.isStarted = true;
+      this.startTime = new Date();
+      this.ellapsedTime = "00:00";
+      this.timer = setInterval(() => {
+        this.tick();
+      }, 1000);
+      this.duration = this.parseTime(this.config.duration);
     })
-
+  }
     // console.log(this.questionList[0].question);
     // console.log(this.questionList[1]);
     // this.nextQuestion();
+    tick() {
+      const now = new Date();
+      const diff = (now.getTime() - this.startTime.getTime()) / 1000;
+      if (diff >= this.config.duration) {
+        this.submitTest();
+      }
+      this.ellapsedTime = this.parseTime(diff);
+    }
+  
+    parseTime(totalSeconds: number) {
+      let mins: string | number = Math.floor(totalSeconds / 60);
+      let secs: string | number = Math.round(totalSeconds % 60);
+      mins = (mins < 10 ? "0" : "") + mins;
+      secs = (secs < 10 ? "0" : "") + secs;
+      return `${mins}:${secs}`;
+    }
 
-  }
   nextQuestion(){
     if(this.response.studentResponse != null){
 

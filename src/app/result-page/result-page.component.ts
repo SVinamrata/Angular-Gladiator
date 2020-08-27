@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-result-page',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ResultPageComponent implements OnInit {
   name:any = sessionStorage.studentName;
   score:any = sessionStorage.score;
-  level:any = sessionStorage.level;
+  level:any = sessionStorage.nextLevel;
+  subjectName:any = sessionStorage.subjectName;
   message1:any;
   message2:any;
   message3:any;
@@ -16,7 +18,8 @@ export class ResultPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if(sessionStorage.getItem("resultStatus") == "Passed"){
+    if(sessionStorage.getItem("resultStatus") == stringify("Passed")){
+      console.log("same");
       this.message1 = "Thank You !!!";
       this.message2 = "You have cleared Level "+this.level;
       if(this.level == 3)

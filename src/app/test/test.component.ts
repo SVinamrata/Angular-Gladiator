@@ -27,6 +27,7 @@ export class TestComponent{
   myFunction(subjectId:any , subjectName:any){
     sessionStorage.setItem("subjectId",subjectId);
     sessionStorage.setItem("subjectName", subjectName);
+    this.fetchCurrentLevel();
     this.router.navigateByUrl('/dashboard/levelLink');
   }
 
@@ -39,7 +40,7 @@ export class TestComponent{
       this.currentLevel = Object.values(data)[0];
       console.log(this.currentLevel+" is current level");
       // this.nextLevel = this.currentLevel+1;
-      sessionStorage.setItem("level" , this.currentLevel);
+      sessionStorage.setItem("currentLevel" , this.currentLevel);
     });
   }
 

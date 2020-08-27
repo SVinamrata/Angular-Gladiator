@@ -37,10 +37,21 @@ export class TaketestComponent {
   timer: any = null;
   startTime: Date;
   endTime: Date;
-  ellapsedTime = "00:00";
+  ellapsedTime = "00:00:00";
   duration = "";
-  config: QuizConfig ={
-    duration: 300
+  config: QuizConfig = {
+    allowBack: false,
+    allowReview: false,
+    autoMove: false, // if true, it will move to next question automatically when answered.
+    duration: 30, // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
+    pageSize: 1,
+    requiredAll: false, // indicates if you must answer all the questions before submitting.
+    richText: false,
+    shuffleQuestions: false,
+    shuffleOptions: false,
+    showClock: false,
+    showPager: true,
+    theme: "none"
   };
 
   constructor(private service: TaketestService , private router: Router){ }
@@ -55,7 +66,7 @@ export class TaketestComponent {
       this.currentLevel = Object.values(data)[0];
       console.log(this.currentLevel+" is current level");
       this.nextLevel = this.currentLevel+1;
-      sessionStorage.setItem("nextLevel" , this.nextLevel);
+      // sessionStorage.setItem("nextLevel" , this.nextLevel);
       this.fetchQuestions();
     });
   }
@@ -91,8 +102,10 @@ export class TaketestComponent {
     }
   
     parseTime(totalSeconds: number) {
+      // let hrs: string | number = Math.floor(totalSeconds/3600);
       let mins: string | number = Math.floor(totalSeconds / 60);
       let secs: string | number = Math.round(totalSeconds % 60);
+
       mins = (mins < 10 ? "0" : "") + mins;
       secs = (secs < 10 ? "0" : "") + secs;
       return `${mins}:${secs}`;
@@ -156,6 +169,7 @@ export class TaketestComponent {
     }
     this.calculateScore();
 
+
   //   for (let entry of this.responseMap.entries()) {
   //     console.log(entry[0], entry[1]);    
   // }
@@ -182,8 +196,12 @@ export class TaketestComponent {
       this.resultStatus = Object.values(data3)[0];
       console.log(this.resultStatus);
       sessionStorage.setItem("resultStatus" , this.resultStatus);
+      this.router.navigate(['resultPageLink']);
     })
-    this.router.navigate(['resultPageLink']);
+  }
+
+  ngOnDestroy(){
+    clearInterval(this.timer);
   }
 
 }

@@ -120,3 +120,6 @@ h2 {
  .bttn{
 	background-color: #c0dce9;
   }
+  .scrolldiv{
+    overflow: scroll;
+  }

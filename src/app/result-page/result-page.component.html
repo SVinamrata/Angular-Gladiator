@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="Result.css" /> -->
     <title>Document</title>
 </head>
-<body style="background-color: black;">
+<body >
     <div class="container">
     <h3>{{message1}}</h3>
     <h3>{{message2}}</h3>
@@ -17,7 +17,7 @@
         <h3>Score:{{score}}</h3>
         <h3>Level:{{level}}</h3>
         <h3>Test:</h3>
-        <button class="exit">Exit</button>
+        <a [routerLink]="['/dashboard']"><button class="exit">Exit</button></a>
     </div>
 </body>
 </html>

@@ -16,7 +16,7 @@ export class ResultPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if(sessionStorage.resultStatus == "Passed"){
+    if(sessionStorage.getItem("resultStatus") == "Passed"){
       this.message1 = "Thank You !!!";
       this.message2 = "You have cleared Level "+this.level;
       if(this.level == 3)

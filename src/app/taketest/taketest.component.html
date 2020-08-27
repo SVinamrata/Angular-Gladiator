@@ -1,10 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-<body style="background-image: url(bg4.jpg); background-position: center;">
-    
-    <button class="button" (click)="fetchCurrentLevel()" style="align-content: center;">START</button>
-    <div class="container">
-        <table>
+<body>
+    <button (click)="fetchCurrentLevel()" style="align-content: center;">START</button>
+
     <form *ngIf="isStarted">
                 <div><b>{{index+1}}.{{ques.question}}</b></div>
                 <div><input type="radio" name="response" value = "{{ques.choiceOne}}" [(ngModel)] = "response.studentResponse">{{ques.choiceOne}}</div>
@@ -12,9 +17,10 @@
                 <div><input type="radio" name="response" value = "{{ques.choiceThree}}" [(ngModel)] = "response.studentResponse">{{ques.choiceThree}}</div>
                 <div><input type="radio" name="response" value = "{{ques.choiceFour}}" [(ngModel)] = "response.studentResponse">{{ques.choiceFour}}</div>
     </form>
-</table>
-    <button class="previous" *ngIf="isStarted" (click)= "previousQuestion()">Previous</button>
-    <button class="next" *ngIf="isStarted" (click)= "nextQuestion()" [disabled]="index+1 == questionListSize">Next</button>
-    <button class="button3" *ngIf="isStarted" (click)= "submitTest()">Submit</button>
-</div>
+    <button *ngIf="isStarted" (click)= "nextQuestion()" [disabled]="index+1 == questionListSize">Next</button>
+    <button *ngIf="isStarted" (click)= "previousQuestion()">Previous</button>
+    <button *ngIf="isStarted" (click)= "submitTest()">Submit</button>
+
 </body>
+
+</html>

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-taketest',
   templateUrl: './taketest.component.html',
-  styleUrls: ['./taketest.component.css']
+  styleUrls: []
 })
 export class TaketestComponent {
   fetchLevel:LevelFetchDto = new LevelFetchDto();

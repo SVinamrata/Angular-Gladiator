@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       }
       else {
         this.message = data.message;
-        this.router.navigate(['']);
+        // this.router.navigate(['']);
       }
     })
   }

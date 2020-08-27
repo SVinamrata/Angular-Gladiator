@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 // import { Subject } from "../app/subjects";
 import { Exam } from "../models/exam";
+import { LevelFetchDto } from '../Dto/levelFetchDto';
 
 
 
@@ -20,6 +21,7 @@ export class TestserviceService {
     return this.http.post(url,exam);
 
   }
+
 
 
 }

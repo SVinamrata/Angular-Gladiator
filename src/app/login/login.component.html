@@ -13,7 +13,7 @@
         <ul>
             <li><a [routerLink]="['/loginLink']">Login</a></li>
             <li><a [routerLink]="['/registerLink']">Register</a></li>
-            <li><a [routerLink]="['/homeLink']">Home</a></li>
+            <li><a [routerLink]="['']">Home</a></li>
             
   
             
@@ -33,7 +33,7 @@
                   
                       <label for="psw"><b>Password</b></label>
                       <input type="password" placeholder="Enter Password" id="psw" name="t2" [(ngModel)]=login.password>
-                      <span id="pswSpan">{{message}}</span><br>
+                      <span id="pswSpan" style="color: red;">{{message}}</span><br>
     
                       <button type="submit" id="button">Login</button>
                       <label>

@@ -43,7 +43,7 @@
 					<li><a href="">Profile</a></li>
 					<li><a [routerLink]="['/dashboard/reportLink']">Reports</a></li>
 					<li><a [routerLink]="['/dashboard/testLink']">Take Test</a></li>
-					<li><a [routerLink]="['']">Logout</a></li>
+					<li><a (click)="logout()">Logout</a></li>
 				</ul>
 				<br>
 			</div>

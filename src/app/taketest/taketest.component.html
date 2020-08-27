@@ -7,19 +7,19 @@
     <title>Document</title>
 </head>
 
-<body>
-    <button (click)="fetchCurrentLevel()" style="align-content: center;">START</button>
-    <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div>
+<body style="font-size: 50px; align-content: center;">
+    <button *ngIf= "pressed" class="start" style="font-size: 30px;" (click)="fetchCurrentLevel()">START</button>
+    <div *ngIf="config.duration" class="badge badge-info float-right" style="align-content:center;">Time: {{ellapsedTime}} / {{duration}}</div>
     <form *ngIf="isStarted">
-                <div><b>{{index+1}}.{{ques.question}}</b></div>
-                <div><input type="radio" name="response" value = "{{ques.choiceOne}}" [(ngModel)] = "response.studentResponse">{{ques.choiceOne}}</div>
-                <div><input type="radio" name="response" value = "{{ques.choiceTwo}}" [(ngModel)] = "response.studentResponse">{{ques.choiceTwo}}</div>
-                <div><input type="radio" name="response" value = "{{ques.choiceThree}}" [(ngModel)] = "response.studentResponse">{{ques.choiceThree}}</div>
-                <div><input type="radio" name="response" value = "{{ques.choiceFour}}" [(ngModel)] = "response.studentResponse">{{ques.choiceFour}}</div>
+                <div><b style="margin-left: 50px;">{{index+1}}.{{ques.question}}</b></div>
+                <div><input type="radio" name="response" value = "{{ques.choiceOne}}" style="margin-left: 50px;" [(ngModel)] = "response.studentResponse">{{ques.choiceOne}}</div>
+                <div><input type="radio" name="response" value = "{{ques.choiceTwo}}" style="margin-left: 50px;" [(ngModel)] = "response.studentResponse">{{ques.choiceTwo}}</div>
+                <div><input type="radio" name="response" value = "{{ques.choiceThree}}" style="margin-left: 50px;" [(ngModel)] = "response.studentResponse">{{ques.choiceThree}}</div>
+                <div><input type="radio" name="response" value = "{{ques.choiceFour}}" style="margin-left: 50px;" [(ngModel)] = "response.studentResponse">{{ques.choiceFour}}</div>
     </form>
-    <button *ngIf="isStarted" (click)= "nextQuestion()" [disabled]="index+1 == questionListSize">Next</button>
-    <button *ngIf="isStarted" (click)= "previousQuestion()">Previous</button>
-    <button *ngIf="isStarted" (click)= "submitTest()">Submit</button>
+    <button style="font-size: 30px;margin-left: 5px;" *ngIf="isStarted" (click)= "nextQuestion()" [disabled]="index+1 == questionListSize">Next</button>
+    <button style="font-size: 30px;margin-left: 5px;" *ngIf="isStarted" (click)= "previousQuestion()">Previous</button>
+    <button style="font-size: 30px;margin-left: 7px;" *ngIf="isStarted" (click)= "submitTest()">Submit</button>
 
 </body>
 

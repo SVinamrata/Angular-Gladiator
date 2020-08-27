@@ -39,19 +39,9 @@ export class TaketestComponent {
   endTime: Date;
   ellapsedTime = "00:00:00";
   duration = "";
+  pressed:boolean = true;
   config: QuizConfig = {
-    allowBack: false,
-    allowReview: false,
-    autoMove: false, // if true, it will move to next question automatically when answered.
-    duration: 30, // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
-    pageSize: 1,
-    requiredAll: false, // indicates if you must answer all the questions before submitting.
-    richText: false,
-    shuffleQuestions: false,
-    shuffleOptions: false,
-    showClock: false,
-    showPager: true,
-    theme: "none"
+    duration: 30  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
   };
 
   constructor(private service: TaketestService , private router: Router){ }
@@ -72,6 +62,7 @@ export class TaketestComponent {
   }
   fetchQuestions(){
     console.log("Running part 2");
+    this.pressed = false;
     this.questions.subjectId = sessionStorage.subjectId;
     this.questions.level = this.currentLevel+1;
     console.log(this.questions.level+ " is next level");

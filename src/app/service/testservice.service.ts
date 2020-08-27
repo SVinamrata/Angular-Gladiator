@@ -21,7 +21,11 @@ export class TestserviceService {
     return this.http.post(url,exam);
 
   }
-
+  
+  fetchLevelOfStudent(levelFetch: LevelFetchDto){
+    let url='http://localhost:8181/levelFetch';
+    return this.http.post(url,levelFetch);
+  }
 
 
 }

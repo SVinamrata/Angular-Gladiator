@@ -12,6 +12,9 @@ import { LevelFetchDto } from '../Dto/levelFetchDto';
 export class TestComponent{
   exam=new Exam();
   data:any;
+  fetchLevel:LevelFetchDto = new LevelFetchDto();
+  currentLevel:any;  
+
 
 
 
@@ -23,7 +26,21 @@ export class TestComponent{
   }
   myFunction(subjectId:any , subjectName:any){
     sessionStorage.setItem("subjectId",subjectId);
+    sessionStorage.setItem("subjectName", subjectName);
     this.router.navigateByUrl('/dashboard/levelLink');
+  }
+
+  fetchCurrentLevel(){
+    console.log("Running part 1");
+    this.fetchLevel.studentId = sessionStorage.studentId;
+    this.fetchLevel.subjectId = sessionStorage.subjectId;
+    this.service.fetchLevelOfStudent(this.fetchLevel).subscribe(data=> {
+      this.data = JSON.stringify(data);
+      this.currentLevel = Object.values(data)[0];
+      console.log(this.currentLevel+" is current level");
+      // this.nextLevel = this.currentLevel+1;
+      sessionStorage.setItem("level" , this.currentLevel);
+    });
   }
 
 

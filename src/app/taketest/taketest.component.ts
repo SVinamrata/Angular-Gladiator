@@ -46,7 +46,7 @@ export class TaketestComponent {
       this.currentLevel = Object.values(data)[0];
       console.log(this.currentLevel+" is current level");
       this.nextLevel = this.currentLevel+1;
-      sessionStorage.setItem("level" , this.nextLevel);
+      sessionStorage.setItem("nextLevel" , this.nextLevel);
       this.fetchQuestions();
     });
   }

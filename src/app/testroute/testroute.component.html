@@ -1,5 +1,5 @@
 <div>
-    <button class="mainButton" padding:10px style="color:black;">Show My Levels</button><br>
+    <!-- <button class="mainButton" padding:10px style="color:black;">Show My Levels</button><br> -->
     </div>
     <div>
         <div class="container">
@@ -8,6 +8,11 @@
                     <div class="col col-1">SUBJECT NAME</div>
                     <div class="col col-2">CURRENT LEVEL</div>
                     <div class="col col-3">NEXT LEVEL</div>
+                </li>
+                <li>
+                    <div style= "color: black;">{{subjectName}}</div>
+                    <div style= "color: black;">{{currLevel}}</div>
+                    <div style= "color: black;">{{nextLevel}}</div>
                 </li>
                         <button class="bttn" (click)="myLevel()" style="color:black;">Click here to Take Test</button>
             </ul>
